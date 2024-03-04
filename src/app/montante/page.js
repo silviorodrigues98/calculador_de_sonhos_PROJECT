@@ -66,7 +66,7 @@ export default function Page() {
         className="rounded-lg p-2 text-lg"
       />
       <label className="mb-2 text-center font-bold text-lg">
-        Taxa CDI atual {" "}
+        Taxa CDI atual (deixe padrão se nao souber){" "}
         {new Intl.NumberFormat("pt-BR", {
           style: "percent",
         }).format(cdiAtual / 100)}
@@ -78,7 +78,7 @@ export default function Page() {
         className="rounded-lg p-2 text-lg"
       />
       <label className="mb-2 text-center font-bold text-lg">
-        Qual a porcentagem sobre o CDI seu investimento oferece? (deixe padrão se nao souber){" "}
+        Porcentagem sobre o CDI (deixe padrão se nao souber){" "}
         {new Intl.NumberFormat("pt-BR", {
           style: "percent",
         }).format(porcentagemCdi / 100)}
