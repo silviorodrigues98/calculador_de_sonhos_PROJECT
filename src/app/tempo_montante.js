@@ -1,5 +1,3 @@
-const formatarComoReais = require("./misc");
-
 function calcularTempoParaMeta(
   meta,
   valorInicial,
@@ -34,29 +32,17 @@ function calcularTempoParaMeta(
     }
   }
 
-  // Calcula o número de meses e dias para atingir a meta
-  const meses = Math.floor(totalDias / 30);
+  // Calcula o número de anos, meses e dias para atingir a meta
+  let anos = Math.floor(totalDias / 365);
+  let meses = Math.floor((totalDias % 365) / 30);
   const dias = totalDias % 30;
 
-  return { meses, dias };
+  if (meses >= 12) {
+    anos += Math.floor(meses / 12);
+    meses = meses % 12;
+  }
+
+  return { anos, meses, dias };
 }
 
-// Exemplo de uso da função
-const meta = 88371; // Meta em reais
-const valorInicial = 15000; // Valor inicial em reais
-const aporteMensal = 1000; // Aporte mensal em reais
-const taxaCDI = 11.15; // Taxa anual do CDI em porcentagem
-const percentualCDI = 110; // Percentual do CDI acordado para o CDB
-
-const tempoParaMeta = calcularTempoParaMeta(
-  meta,
-  valorInicial,
-  aporteMensal,
-  taxaCDI,
-  percentualCDI
-);
-console.log(
-  `Você levará aproximadamente ${tempoParaMeta.meses} meses e ${
-    tempoParaMeta.dias
-  } dias para atingir a meta de R$ ${formatarComoReais(meta)}`
-);
+module.exports = calcularTempoParaMeta;
