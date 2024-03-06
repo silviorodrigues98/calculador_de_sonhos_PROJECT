@@ -24,8 +24,8 @@ export default function Page() {
   }, [meta, valorInicial, aporteMensal, cdiAtual, porcentagemCdi]);
 
   return (
-    <div className="flex flex-col my-4 bg-green-200 shadow-lg border-gray-500 border-2 rounded-lg p-4">
-      <label className="mb-2 text-center font-bold text-lg">
+    <div className="flex flex-col my-4 bg-blue-300 shadow-lg border-gray-500 border-2 rounded-lg p-4 px-8 py-6 mx-4">
+      <label className="mb-2 text-center font-bold text-xl">
         Quanto você deseja ter?{" "}
         {new Intl.NumberFormat("pt-BR", {
           style: "currency",
@@ -36,10 +36,10 @@ export default function Page() {
         type="number"
         value={meta}
         onChange={(e) => setMeta(e.target.value)}
-        className="rounded-lg p-2 text-lg"
+        className="rounded-lg p-2 text-lg text-center" // Added text-center class
       />
 
-      <label className="mb-2 text-center font-bold text-lg">
+      <label className="mb-2 text-center font-bold text-xl">
         Quanto você já tem?{" "}
         {new Intl.NumberFormat("pt-BR", {
           style: "currency",
@@ -50,9 +50,9 @@ export default function Page() {
         type="number"
         value={valorInicial}
         onChange={(e) => setValorInicial(e.target.value)}
-        className="rounded-lg p-2 text-lg"
+        className="rounded-lg p-2 text-lg text-center" // Added text-center class
       />
-      <label className="mb-2 text-center font-bold text-lg">
+      <label className="mb-2 text-center font-bold text-xl">
         Quanto você irá investir por mês?{" "}
         {new Intl.NumberFormat("pt-BR", {
           style: "currency",
@@ -63,9 +63,9 @@ export default function Page() {
         type="number"
         value={aporteMensal}
         onChange={(e) => setAporteMensal(e.target.value)}
-        className="rounded-lg p-2 text-lg"
+        className="rounded-lg p-2 text-lg text-center" // Added text-center class
       />
-      <label className="mb-2 text-center font-bold text-lg">
+      <label className="mb-2 text-center font-bold text-xl">
         Taxa CDI atual (deixe padrão se nao souber){" "}
         {new Intl.NumberFormat("pt-BR", {
           style: "percent",
@@ -75,9 +75,9 @@ export default function Page() {
         type="number"
         value={cdiAtual}
         onChange={(e) => setCdiAtual(e.target.value)}
-        className="rounded-lg p-2 text-lg"
+        className="rounded-lg p-2 text-lg text-center" // Added text-center class
       />
-      <label className="mb-2 text-center font-bold text-lg">
+      <label className="mb-2 text-center font-bold text-xl">
         Porcentagem sobre o CDI (deixe padrão se nao souber){" "}
         {new Intl.NumberFormat("pt-BR", {
           style: "percent",
@@ -87,10 +87,16 @@ export default function Page() {
         type="number"
         value={porcentagemCdi}
         onChange={(e) => setPorcentagemCdi(e.target.value)}
-        className="rounded-lg p-2 text-lg"
+        className="rounded-lg p-2 text-lg text-center" // Added text-center class
       />
-      <div>
-        <p className="text-center">ANOS {resultado.anos} MESES: {resultado.meses} DIAS: {resultado.dias}</p>
+      <div className="bg-blue-500 text-xl p-4 mt-14 text-center italic rounded-2xl border-white border-double border-4">
+        <p>
+          Você vai levar{" "}
+          <span className="font-bold text-white">{resultado.anos} ANOS</span> ,{" "}
+          <span className="font-bold text-white">{resultado.meses} MESES</span>{" "}
+          e <span className="font-bold text-white">{resultado.dias} DIAS</span>
+        </p>
+        <p>para alcançar sua meta financeira!</p>
       </div>
     </div>
   );
