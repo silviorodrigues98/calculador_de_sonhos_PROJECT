@@ -21,8 +21,7 @@ export default function Page() {
       <Link legacyBehavior href="/retorno">
         <div className="bg-yellow-500 rounded-lg p-4 m-2 cursor-pointer">
           <a className="text-lg">
-            JÁ TENHO CAPITAL INVESTIDO, E DESEJO QUANTO ELE RENDE POR DIA, MÊS E
-            ANO
+            JÁ TENHO CAPITAL INVESTIDO, E DESEJO QUANTO SABER ELE RENDE POR DIA, MÊS E ANO
           </a>
         </div>
       </Link>

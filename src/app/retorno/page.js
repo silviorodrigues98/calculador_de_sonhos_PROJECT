@@ -74,9 +74,17 @@ export default function Rendimento() {
           <span className="font-bold text-white">
             {formatarComoReais(valorInvestido)}
           </span>{" "}
-          investidos, você terá o rendimento mensal de{" "}
+          investidos, você terá o rendimento diário de{" "}
+          <span className="font-bold text-white">
+            {formatarComoReais(resultado.diario)}
+          </span>
+          , mensal de{" "}
           <span className="font-bold text-white">
             {formatarComoReais(resultado.mensal)}
+          </span>{" "}
+          e anual de{" "}
+          <span className="font-bold text-white">
+            {formatarComoReais(resultado.anual)}
           </span>
           , já descontado o imposto de
           <span className="font-bold text-white"> {resultado.aliquota} </span>
