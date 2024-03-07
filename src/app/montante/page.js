@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 const calcularTempoParaMeta = require("../tempo_montante");
 
-export default function Page() {
+export default function Montante() {
   const [meta, setMeta] = useState(10000);
   const [valorInicial, setValorInicial] = useState(1000);
   const [aporteMensal, setAporteMensal] = useState(100);

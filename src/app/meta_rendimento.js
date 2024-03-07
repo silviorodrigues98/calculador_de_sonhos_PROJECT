@@ -4,7 +4,6 @@ function calcularValorInvestidoParaRendimento(
   rendimentoEsperado,
   taxaCDI,
   percentualCDI,
-  periodo,
   prazoResgate
 ) {
   // Calcula a taxa diária do CDI
@@ -26,62 +25,25 @@ function calcularValorInvestidoParaRendimento(
   }
 
   // Calcula o valor que precisa ser investido para alcançar o rendimento esperado antes do IR
-  let valorInvestidoBruto;
-  if (periodo === "diario") {
-    valorInvestidoBruto =
-      rendimentoEsperado / (rentabilidadeDiariaCDB * (1 - aliquotaIR));
-  } else if (periodo === "mensal") {
-    valorInvestidoBruto =
-      rendimentoEsperado / (rentabilidadeDiariaCDB * 30 * (1 - aliquotaIR)); // Considerando um mês de 30 dias
-  } else if (periodo === "anual") {
-    valorInvestidoBruto =
-      rendimentoEsperado / (rentabilidadeDiariaCDB * 252 * (1 - aliquotaIR)); // Considerando 252 dias úteis por ano
-  }
+  const valorInvestidoDiario =
+    rendimentoEsperado / (rentabilidadeDiariaCDB * (1 - aliquotaIR));
+  const valorInvestidoMensal =
+    rendimentoEsperado / (rentabilidadeDiariaCDB * 30 * (1 - aliquotaIR)); // Considerando um mês de 30 dias
+  const valorInvestidoAnual =
+    rendimentoEsperado / (rentabilidadeDiariaCDB * 252 * (1 - aliquotaIR)); // Considerando 252 dias úteis por ano
 
-  return valorInvestidoBruto;
+  return {
+    diario: formatarComoReais(Math.round(valorInvestidoDiario)),
+    mensal: formatarComoReais(Math.round(valorInvestidoMensal)),
+    anual: formatarComoReais(Math.round(valorInvestidoAnual)),
+    aliquota: `${aliquotaIR * 100}%`,
+  };
 }
 
 // Exemplo de uso da função
-const rendimentoEsperado = 1000; // Rendimento esperado em reais
-const taxaCDI = 11.15; // Taxa anual do CDI em porcentagem
-const percentualCDI = 110; // Percentual do CDI acordado para o CDB
-const prazoResgate = 1; // Prazo de resgate em dias
+// const rendimentoEsperado = 1000; // Rendimento esperado em reais
+// const taxaCDI = 11.15; // Taxa anual do CDI em porcentagem
+// const percentualCDI = 110; // Percentual do CDI acordado para o CDB
+// const prazoResgate = 1; // Prazo de resgate em dias
 
-const valorNecessarioInvestirDiario = calcularValorInvestidoParaRendimento(
-  rendimentoEsperado,
-  taxaCDI,
-  percentualCDI,
-  "diario",
-  prazoResgate
-);
-console.log(
-  `Para um rendimento diário de R$ ${formatarComoReais(
-    rendimentoEsperado
-  )}, é necessário investir ${formatarComoReais(valorNecessarioInvestirDiario)}`
-);
-
-const valorNecessarioInvestirMensal = calcularValorInvestidoParaRendimento(
-  rendimentoEsperado,
-  taxaCDI,
-  percentualCDI,
-  "mensal",
-  prazoResgate
-);
-console.log(
-  `Para um rendimento mensal de R$ ${formatarComoReais(
-    rendimentoEsperado
-  )}, é necessário investir ${formatarComoReais(valorNecessarioInvestirMensal)}`
-);
-
-const valorNecessarioInvestirAnual = calcularValorInvestidoParaRendimento(
-  rendimentoEsperado,
-  taxaCDI,
-  percentualCDI,
-  "anual",
-  prazoResgate
-);
-console.log(
-  `Para um rendimento anual de R$ ${formatarComoReais(
-    rendimentoEsperado
-  )}, é necessário investir ${formatarComoReais(valorNecessarioInvestirAnual)}`
-);
+module.exports = calcularValorInvestidoParaRendimento;

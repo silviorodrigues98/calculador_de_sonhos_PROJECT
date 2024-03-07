@@ -1,24 +1,20 @@
-"use client";
-
-import React, { useState } from "react";
 import Link from "next/link";
 
 export default function Page() {
-  const [escolha, setEscolha] = useState("nenhuma");
 
   return (
     <div>
-      <div onClick={() => setEscolha("montante")}>
+      <div>
         <Link legacyBehavior href="/montante">
           <a>QUERO CHEGAR UM MONTANTE ESPECÍFICO, POR EXEMPLO R$ 100.000,00</a>
         </Link>
       </div>
-      <div onClick={() => setEscolha("rendimento")}>
+      <div>
         <Link legacyBehavior href="/rendimento">
           <a>DESEJO TER UM RENDIMENTO MENSAL COMO RENDA PASSIVA, GANHANDO R$ 1.000,00 MENSALMENTE, POR EXEMPLO</a>
         </Link>
       </div>
-      <div onClick={() => setEscolha("retorno")}>
+      <div>
         <Link legacyBehavior href="/retorno">
           <a>JÁ TENHO CAPITAL INVESTIDO, E DESEJO QUANTO ELE RENDE POR DIA, MÊS E ANO</a>
         </Link>
