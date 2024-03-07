@@ -37,11 +37,11 @@ function calcularRendimentos(
   };
 }
 
-// Exemplo de uso da função
-const valorInvestido = 250000; // Valor já investido em reais
-const taxaCDI = 11.15; // Taxa anual do CDI em porcentagem
-const percentualCDB = 110; // Percentual do CDB
-const prazoResgate = 365; // Prazo de resgate em dias
+// // Exemplo de uso da função
+// const valorInvestido = 250000; // Valor já investido em reais
+// const taxaCDI = 11.15; // Taxa anual do CDI em porcentagem
+// const percentualCDB = 110; // Percentual do CDB
+// const prazoResgate = 365; // Prazo de resgate em dias
 
 const rendimentos = calcularRendimentos(
   valorInvestido,
@@ -49,6 +49,3 @@ const rendimentos = calcularRendimentos(
   percentualCDB,
   prazoResgate
 );
-console.log(`Rendimento diário: ${formatarComoReais(rendimentos.diario)}`);
-console.log(`Rendimento mensal: ${formatarComoReais(rendimentos.mensal)}`);
-console.log(`Rendimento anual: ${formatarComoReais(rendimentos.anual)}`);
