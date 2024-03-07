@@ -32,14 +32,18 @@ function calcularTempoParaMeta(
     }
   }
 
-  // Calcula o número de anos, meses e dias para atingir a meta
-  let anos = Math.floor(totalDias / 365);
-  let meses = Math.floor((totalDias % 365) / 30);
-  const dias = totalDias % 30;
+  let anos = 0;
+  let meses = 0;
+  let dias = totalDias;
 
-  if (meses >= 12) {
-    anos += Math.floor(meses / 12);
-    meses = meses % 12;
+  while (dias >= 365) {
+    dias -= 365;
+    anos++;
+  }
+
+  while (dias >= 30) {
+    dias -= 30;
+    meses++;
   }
 
   return { anos, meses, dias };
