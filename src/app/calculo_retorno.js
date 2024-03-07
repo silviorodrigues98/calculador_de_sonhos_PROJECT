@@ -34,6 +34,7 @@ function calcularRendimentos(
     diario: rendimentoDiario,
     mensal: rendimentoMensal,
     anual: rendimentoAnual,
+    aliquota: `${aliquotaIR * 100}%`,
   };
 }
 
@@ -43,9 +44,4 @@ function calcularRendimentos(
 // const percentualCDB = 110; // Percentual do CDB
 // const prazoResgate = 365; // Prazo de resgate em dias
 
-const rendimentos = calcularRendimentos(
-  valorInvestido,
-  taxaCDI,
-  percentualCDB,
-  prazoResgate
-);
+module.exports = calcularRendimentos;
