@@ -1,5 +1,5 @@
 # Aplicação NextJS, acesse em:
-[Calculadora de Sonhos](https://calculadora-de-sonhos.vercel.app/)
+[Calculadora de Sonhos](https://calculadora-de-sonhos.vercel.app//)
 
 ## Descrição
 
